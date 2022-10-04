@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&family=Mukta+Mahee:wght@200;300;400;500&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #202432;
+    color: #fff;
+    font-family: 'Mukta Mahee', sans-serif;
 }
 
 a {
