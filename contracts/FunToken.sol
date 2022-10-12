@@ -30,8 +30,8 @@ contract FunToken {
     }
 
     mapping(address => uint256) public balanceOf;
-    mapping(address => mapping(address => uint256)) public allowance;
-
+    mapping(address => mapping(address => uint256)) public allowance;    // mapping the allowed user transaction.This user is allowed for transaction by owner
+                                                                         // and basically the user is the one whome owner transferd token
     constructor(uint256 _initialSupply) {
         ownerOfContract = msg.sender;
         balanceOf[msg.sender] = _initialSupply;
@@ -39,7 +39,8 @@ contract FunToken {
     }
 
     function inc() internal {
-        _userId++;
+        _userId++;        //its increment function which is assigned to user after a transaction
+
     }
 
     function transfer(address _to, uint256 _value)
@@ -47,12 +48,11 @@ contract FunToken {
         returns (bool success)
     {
         require(balanceOf[msg.sender] >= _value);
-        inc();
-
+        inc();                                       
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
 
-        TokenHolderInfo storage tokenHolderInfo = tokenHolderInfos[_to];
+        TokenHolderInfo storage tokenHolderInfo = tokenHolderInfos[_to]; //storage because we are updating global variable  and then mapping all tokenholder info 
 
         tokenHolderInfo._to = _to;
         tokenHolderInfo._from = msg.sender;
@@ -60,7 +60,7 @@ contract FunToken {
         tokenHolderInfo._tokenHolder = true;
         tokenHolderInfo._tokenId = _userId;
 
-        holderToken.push(_to);
+        holderToken.push(_to);  // pushing the transfe _to address  to holderToken array.So we can call it in a fn to get tokenHolders data.
 
         emit Transfer(msg.sender, _to, _value);
 
