@@ -52,8 +52,9 @@ contract FunToken {
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
 
-        TokenHolderInfo storage tokenHolderInfo = tokenHolderInfos[_to]; //storage because we are updating global variable  and then mapping all tokenholder info 
-
+        TokenHolderInfo storage tokenHolderInfo = tokenHolderInfos[_to]; //storage because we are updating global variable 
+                                                                          //and then mapping all tokenholder info by creating new struct which is mapped for every new user 
+                                                                          //so we are putting the user interaction data to mapping
         tokenHolderInfo._to = _to;
         tokenHolderInfo._from = msg.sender;
         tokenHolderInfo._totalToken = _value;
