@@ -134,10 +134,10 @@ window.location.reload();
       const signer = provider.getSigner();
       const contract = fetchContractERC20(signer);
 
-      const allTokenHolder = await contract.getTokenHolder();
+      const allTokenHolder = await contract.getTokenHolder(); //we get the addresses and we store it in el
 
       allTokenHolder.map(async (el) => {
-        const singleHolderData = await contract.getTokenHolderData(el);
+        const singleHolderData = await contract.getTokenHolderData(el);   //after getting individual address we map there txn history by getTokenholderData().
         holderArray.push(singleHolderData);
         console.log(holderArray);
       });
