@@ -8,11 +8,11 @@ import funToken from '../../assets/funtoken.png';
 const User = ({ holderArray }) => {
   return (
     <div className={Style.user}>
-      {holderArray.map((el, i) => (                                                      // tokenHolderInfos[_address]._tokenId, ====>  el[0]
-        <div key={i + 1} className={Style.user_box}>                                     // tokenHolderInfos[_address]._to,     =====> el [1]
-          <h4 className={Style.user_box_name}>User #{el[0].toNumber()}</h4>              // tokenHolderInfos[_address]._from,    =====> el [2]
-          <div className={Style.user_box_price_box}>                                      //tokenHolderInfos[_address]._totalToken  =====> el [3]
-            <p className={Style.user_box_price}>{el[3].toNumber()} Token</p>             //  tokenHolderInfos[_address]._tokenHolder   =====> el [4]
+      {holderArray.map((el, i) => (                                                     
+        <div key={i + 1} className={Style.user_box}>                                     
+          <h4 className={Style.user_box_name}>User #{el[0].toNumber()}</h4>             
+          <div className={Style.user_box_price_box}>                                      
+            <p className={Style.user_box_price}>{el[3].toNumber()} Token</p>             
             <p className={Style.user_box_status}>
               ${el[3].toNumber() * 50} / {el[3].toNumber()} Your Token worth
             </p>
